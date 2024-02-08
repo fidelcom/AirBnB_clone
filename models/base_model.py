@@ -1,32 +1,64 @@
 #!/usr/bin/python3
-import uuid
-import datetime
+import models
+from uuid import uuid4
+from datetime import datetime
+
+"""
+Module BaseModel
+Parent of all classes
+"""
+
 
 class BaseModel:
-    def __init__(self, id=None, created_at=None, updated_at=None):
-        if id is None:
-            self.id = str(uuid.uuid4())
-        else:
-            self.id = id
+    """Base class for Airbnb clone project
+        Methods:
+            __init__(self, *args, **kwargs)
+            __str__(self)
+            __save(self)
+            __repr__(self)
+            to_dict(self)
+    """
 
-        if created_at is None:
-            self.created_at = datetime.datetime.now()
-        else:
-            self.created_at = created_at
+    def __init__(self, *args, **kwargs):
+        """
+        Initialize attributes: random uuid, dates created/updated
+        """
+        dform = "%Y-%m-%dT%H:%M:%S.%f"
+        self.id = str(uuid4())
+        self.created_at = datetime.now()
+        self.updated_at = datetime.now()
 
-        if updated_at is None:
-            self.updated_at = datetime.datetime.now()
+        if len(kwargs) != 0:
+            for key, value in kwargs.items():
+                if key == "created_at" or key == "updated_at":
+                    self.__dict__[key] = datetime.strptime(value, dform)
+                else:
+                    self.__dict__[key] = value
         else:
-            self.updated_at = updated_at
+            models.storage.new(self)
 
-    def __str__(self):
-        return ("[{}] ({}) ({})".format(self.__class__.__name__, self.id, self.__dict__))
+string formats of times; add class info to dic
+        """
+        dict_copy = self.__dict__.copy()
+        dict_copy["created_at"] = self.created_at.isoformat()
+        dict_copy["updated_at"] = self.updated_at.isoformat()
+        dict_copy["__class__"] =
     def save(self):
-        self.updated_at = datetime.datetime.now()
+        """
+        Update instance with updated time & save to serialized file
+        """
+        self.updated_at = datetime.today()
+        models.storage.save(self)
 
     def to_dict(self):
-        dict_copy = self.__dict__.copy()
-        dict_copy["__class__"] = self.__class__.__name__
-        dict_copy["created_at"] = dict_copy["created_at"].isoformat()
-        dict_copy["updated_at"] = dict_copy["updated_at"].isoformat()
-        return (dict_copy)
+        """
+        Return dic with  self.__class__.__name__
+        return dict_copy
+
+
+    def __str__(self):
+        """
+        Return string of info about model
+        """
+        name = self.__class__.__name__
+        return "[{}] ({}) {}".format(name, self.id, self.__dict__)
