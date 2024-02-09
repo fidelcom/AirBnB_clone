@@ -29,3 +29,35 @@ def parse(arg):
         ret_lex = [i.strip(",") for i in lex]
         ret_lex.append(c_braces.group())
         return ret_lex
+
+class HBNBCommand(cmd.Cmd):
+    """
+    Entry to command interpreter
+    """
+    prompt = "(hbnb) "
+    __is__classes = {
+            "BaseModel",
+            "User",
+            "State",
+            "City",
+            "Place",
+            "Amenity",
+            "Review"
+            }
+
+
+    def do_quit(self, arg):
+        """Exit on quit"""
+        return True
+
+    def do_EOF(self, arg):
+        """Exit on Ctrl-D"""
+        print("")
+        return True
+
+    def emptyline(self):
+        """Overwrite default behavior to repeat last cmd"""
+        pass
+
+if __name__ == '__main__':
+    HBNBCommand().cmdloop()
