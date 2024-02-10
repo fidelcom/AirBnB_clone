@@ -37,12 +37,6 @@ class BaseModel:
         else:
             models.storage.new(self)
 
-string formats of times; add class info to dic
-        """
-        dict_copy = self.__dict__.copy()
-        dict_copy["created_at"] = self.created_at.isoformat()
-        dict_copy["updated_at"] = self.updated_at.isoformat()
-        dict_copy["__class__"] =
     def save(self):
         """
         Update instance with updated time & save to serialized file
@@ -52,9 +46,13 @@ string formats of times; add class info to dic
 
     def to_dict(self):
         """
-        Return dic with  self.__class__.__name__
+        Return dic with string formats of times; add class info to dic
+        """
+        dict_copy = self.__dict__.copy()
+        dict_copy["created_at"] = self.created_at.isoformat()
+        dict_copy["updated_at"] = self.updated_at.isoformat()
+        dict_copy["__class__"] = self.__class__.__name__
         return dict_copy
-
 
     def __str__(self):
         """
