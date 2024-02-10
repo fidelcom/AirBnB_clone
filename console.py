@@ -50,6 +50,6 @@ class HBNBCommand(cmd.Cmd):
         if not instance[cls][id]:
             print("* no instance found **")
         print(str(
-            
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
