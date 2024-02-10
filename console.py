@@ -182,5 +182,29 @@ class HBNBCommand(cmd.Cmd):
                 count += 1
         print(count)
 
+    def default(self, arg):
+        """
+        Accepts class name followed by arguement
+        """
+        arg_dictionary = {
+            "all": self.do_all,
+            "show": self.do_show,
+            "destroy": self.do_destroy,
+            "count": self.do_count,
+            "update": self.do_update
+        }
+        match = re.search(r"\.", arg)
+        if match is not None:
+            arg_lex = [arg[:match.span()[0]], arg[match.span()[1]:]]
+            match = re.search(r"\((.*?)\)", arg_lex[1])
+            if match is not None:
+                command = [arg_lex[1][:match.span()[0]], match.group()[1:-1]]
+                if command[0] in arg_dictionary.keys():
+                    call = "{} {}".format(arg_lex[0], command[1])
+                    return arg_dictionary[command[0]](call)
+        print("*** Unknown syntax: {}".format(arg))
+        return False
+
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
