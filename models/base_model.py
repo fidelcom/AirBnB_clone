@@ -42,7 +42,7 @@ class BaseModel:
         Update instance with updated time & save to serialized file
         """
         self.updated_at = datetime.today()
-        models.storage.save(self)
+        models.storage.save()
 
     def to_dict(self):
         """
