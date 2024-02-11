@@ -14,11 +14,11 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(peps.total_errors, 0, "Check pep8")
 
     def test_to_json(self):
+        pass
 
-    def test_save_BaesModel(self):
+    def test_save_BaseModel(self):
         self.base.save()
         self.assertNotEqual(self.base.created_at, self.base.updated_at)
-
 
     def setUp(self):
         self.testbasemodel = BaseModel()
@@ -32,11 +32,9 @@ class TestBaseModel(unittest.TestCase):
         self.assertFalse(hasattr(bm, "updated_at"))
         self.assertTrue(hasattr(bm, "__class__"))
 
-
     def test_doc(self):
         self.assertisNotNone(BaseModel.__doc__)
 
 
 if __name__ == "__main__":
     unittest.main()
-

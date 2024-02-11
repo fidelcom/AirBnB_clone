@@ -23,5 +23,3 @@ class TestAmenity(unittest.TestCase):
     def test_Amenity_inheritence(self):
         n_amenity = Amenity()
         self.assertIsInstance(n_amenity, BaseModel)
-
-

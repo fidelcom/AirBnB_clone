@@ -18,6 +18,13 @@ class FileStorage:
     """
     __file_path = "file.json"
     __objects = {}
+    classes = {
+        "Place": Place,
+        "State": State,
+        "City": City,
+        "Amenity": Amenity,
+        "Review": Review,
+    }
 
     def all(self):
         """
@@ -54,4 +61,3 @@ class FileStorage:
                     self.new(eval(class_name)(**value))
         except FileNotFoundError:
             return
-

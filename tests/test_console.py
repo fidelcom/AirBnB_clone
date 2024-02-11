@@ -5,8 +5,8 @@ import unittest
 from unittest.mock import patch
 from io import StringIO
 from models import storage
-"""from models.engine.file_strorage import FileStorage"""
 from console import HBNBCommand
+"""from models.engine.file_strorage import FileStorage"""
 
 
 class TestHBNBCommand(unittest.TestCase):
@@ -54,9 +54,11 @@ class TestHBNBCommand(unittest.TestCase):
             command.onecmd("update")
             output = "** class name missing **"
             self.assertEqual(mock_stdout.getvalue().strip(), output)
+
     @patch('console.storage.all')
     def test_count(self, mock_all):
-        mock_all.return_value = {"BaseModel.1234": "Some object", "BaseModel.5678": "another object"}
+        mock_all.return_value = {"BaseModel.1234": "Some object",
+                                 "BaseModel.5678": "another object"}
         with patch('sys.stdout', new_callable=StringIO) as mock_stdout:
             self.command.onecmd("count BaseModel")
             self.assertEqual(mock_stdout.getvalue().strip(), "0")
@@ -76,6 +78,7 @@ class TestHBNBCommand(unittest.TestCase):
     def test_do_EOF(self, mock_stdout):
         self.assertTrue(self.command.do_EOF(""))
         self.assertEqual(mock_stdout.getvalue(), "\n")
+
 
 if __name__ == '__main__':
     unittest.main()

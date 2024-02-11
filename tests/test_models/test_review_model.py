@@ -53,7 +53,8 @@ class TestReview(unittest.TestCase):
 
     def test_save(self):
         self.new_review.save()
-        self.assertNotEqual(self.new_review.created_at, self.new_review.updated_at)
+        self.assertNotEqual(self.new_review.created_at,
+                            self.new_review.updated_at)
 
     def test_to_dict(self):
         self.assertEqual('to_dict' in dir(self.new_review), True)

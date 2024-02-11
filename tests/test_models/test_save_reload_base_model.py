@@ -14,4 +14,3 @@ new_model.name = "My_First_Model"
 new_model.new_number = 89
 new_model.save()
 print(new_model)
-

@@ -47,7 +47,8 @@ class TestState(unittest.TestCase):
 
     def test_save(self):
         self.set_state.save()
-        self.assertNotEqual(self.set_state.created_at, self.set_state.updated_at)
+        self.assertNotEqual(self.set_state.created_at,
+                            self.set_state.updated_at)
 
     def test_to_dict(self):
         self.assertEqual('to_dict' in dir(self.set_state), True)

@@ -12,7 +12,8 @@ new_model_json = new_model.to_dict()
 print(new_model_json)
 print("JSON of new_model:")
 for key in new_model_json.keys():
-    print("\t{}: ({}) - {}".format(key, type(new_model_json[key]), new_model_json[key]))
+    print("\t{}: ({}) - {}".format(key,
+          type(new_model_json[key]), new_model_json[key]))
 
 print("--")
 set_new_model = BaseModel(**new_model_json)
@@ -22,4 +23,3 @@ print(type(set_new_model.created_at))
 
 print("--")
 print(new_model is set_new_model)
-

@@ -25,5 +25,3 @@ new_user2.email = "airbnb2@mail.com"
 new_user2.password = "root"
 new_user2.save()
 print(new_user2)
-
-

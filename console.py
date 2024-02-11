@@ -30,6 +30,7 @@ def parse(arg):
         ret_lex.append(c_braces.group())
         return ret_lex
 
+
 class HBNBCommand(cmd.Cmd):
     """
     Entry to command interpreter
@@ -44,7 +45,6 @@ class HBNBCommand(cmd.Cmd):
             "Amenity",
             "Review"
             }
-
 
     def do_quit(self, arg):
         """Exit on quit"""

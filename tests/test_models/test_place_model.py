@@ -44,7 +44,6 @@ class TestUser(unittest.TestCase):
         latitude = getattr(self.set_place, "latitude")
         self.assertIsInstance(latitude, float)
 
-
     def test_type_price_by_night(self):
         price_by_night = getattr(self.set_place, "price_by_night")
         self.assertIsInstance(price_by_night, int)
@@ -76,4 +75,3 @@ class TestUser(unittest.TestCase):
     def test_type_city_id(self):
         city_id = getattr(self.set_place, "city_id")
         self.assertIsInstance(city_id, str)
-

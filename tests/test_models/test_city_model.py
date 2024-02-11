@@ -24,5 +24,3 @@ class TestUser(unittest.TestCase):
         set_city = City()
         self.assertTrue("state_id" in set_city.__dir__())
         self.assertTrue("name" in set_city.__dir__())
-
-
