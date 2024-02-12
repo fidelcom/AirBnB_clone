@@ -17,8 +17,10 @@ class TestBaseModel(unittest.TestCase):
         pass
 
     def test_save_BaseModel(self):
-        self.base.save()
-        self.assertNotEqual(self.base.created_at, self.base.updated_at)
+        base = BaseModel()
+        base.save()
+        self.assertIsNotNone(base.updated_at)
+        self.assertNotEqual(base.created_at, base.updated_at)
 
     def setUp(self):
         self.testbasemodel = BaseModel()
@@ -26,14 +28,14 @@ class TestBaseModel(unittest.TestCase):
     def test_kwarg(self):
         bm = BaseModel(name="base")
         self.assertEqual(type(bm).__name__, "BaseModel")
-        self.assertFalse(hasattr(bm, "id"))
-        self.assertFalse(hasattr(bm, "created_at"))
+        self.assertTrue(hasattr(bm, "id"))
+        self.assertTrue(hasattr(bm, "created_at"))
         self.assertTrue(hasattr(bm, "name"))
-        self.assertFalse(hasattr(bm, "updated_at"))
+        self.assertTrue(hasattr(bm, "updated_at"))
         self.assertTrue(hasattr(bm, "__class__"))
 
     def test_doc(self):
-        self.assertisNotNone(BaseModel.__doc__)
+        self.assertIsNotNone(BaseModel.__doc__)
 
 
 if __name__ == "__main__":
