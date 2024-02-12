@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Test file"""
 from models.base_model import BaseModel
 
 new_model = BaseModel()

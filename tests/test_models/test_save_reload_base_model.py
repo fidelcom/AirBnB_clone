@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Test file"""
 from models import storage
 from models.base_model import BaseModel
 

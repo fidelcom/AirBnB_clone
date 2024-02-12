@@ -1,12 +1,15 @@
 #!/usr/bin/python3
-"""Defines unittests for console.py."""
+"""Defines unittests for console."""
 
 import unittest
+import os
+import sys
+import datetime
 from unittest.mock import patch
+from console import HBNBCommand
 from io import StringIO
 from models import storage
-from console import HBNBCommand
-"""from models.engine.file_strorage import FileStorage"""
+from models.engine.file_storage import FileStorage
 
 
 class TestHBNBCommand(unittest.TestCase):

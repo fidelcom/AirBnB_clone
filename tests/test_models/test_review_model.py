@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+"""Unnittest module for Review"""
 import unittest
 import os
 import pep8
@@ -8,9 +8,10 @@ from models.base_model import BaseModel
 
 
 class TestReview(unittest.TestCase):
-
+    """Test cases for Review class"""
     @classmethod
     def setUpClass(self):
+        """Doc"""
         self.new_review = Review()
         self.new_review.place_id = "John"
         self.new_review.user_id = "Peter"
@@ -18,6 +19,7 @@ class TestReview(unittest.TestCase):
 
     @classmethod
     def tearDownClass(self):
+        """Doc"""
         del self.new_review
         try:
             os.remove("file.json")
@@ -33,12 +35,15 @@ class TestReview(unittest.TestCase):
         self.assertEqual(peps.total_errors, 0, "fix pep8")
 
     def test_is_subclass(self):
+        """Doc"""
         self.assertTrue(issubclass(self.new_review.__class__, BaseModel), True)
 
     def test_checking_for_functions(self):
+        """Doc"""
         self.assertIsNotNone(Review.__doc__)
 
     def test_has_attributes(self):
+        """Doc"""
         self.assertTrue('id' in self.new_review.__dict__)
         self.assertTrue('created_at' in self.new_review.__dict__)
         self.assertTrue('updated_at' in self.new_review.__dict__)
@@ -47,16 +52,19 @@ class TestReview(unittest.TestCase):
         self.assertTrue('user_id' in self.new_review.__dict__)
 
     def test_attributes_are_strings(self):
+        """Doc"""
         self.assertEqual(type(self.new_review.text), str)
         self.assertEqual(type(self.new_review.place_id), str)
         self.assertEqual(type(self.new_review.user_id), str)
 
     def test_save(self):
+        """Doc"""
         self.new_review.save()
         self.assertNotEqual(self.new_review.created_at,
                             self.new_review.updated_at)
 
     def test_to_dict(self):
+        """Doc"""
         self.assertEqual('to_dict' in dir(self.new_review), True)
 
 
