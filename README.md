@@ -21,11 +21,11 @@ Your could work like this in interactive mode:
 	$ ./console.py
 	(hbnb) help
 
-	Documented commands (type help <topic>):
-		========================================
-			EOF  help  quit
+Documented commands (type help <topic>):
+========================================
+	EOF  help  quit
 
-			(hbnb) 
+	(hbnb) 
 	(hbnb) 
 	(hbnb) quit
 	$
@@ -81,7 +81,7 @@ all or all Ex:
 # **Update**
 Updates an instance based on the class name and id:
 
-(hbnb) update BaseModel 1234-1234-1234 email "aibnb@holbertonschool.com"
+(hbnb) update BaseModel 1234-1234-1234
 # **Quit**
 quit or EOF
 
@@ -89,7 +89,7 @@ quit or EOF
 help or help Ex:
 
 (hbnb) help or help quit
-Defines quit option
+	Defines quit option
 (hbnb) 
 # **Supported classes:**
 * BaseModel
