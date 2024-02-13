@@ -28,7 +28,7 @@ class TestBaseModel(unittest.TestCase):
 
     def setUp(self):
         """Doc"""
-        self.testbasemodel = BaseModel()
+        self.test_base_model = BaseModel()
 
     def test_kwarg(self):
         """Doc"""
