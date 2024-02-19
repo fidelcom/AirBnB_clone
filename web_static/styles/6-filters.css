@@ -8,7 +8,7 @@
   align-items: center;
 }
 
-.filters button {
+section.filters button {
   font-size: 18px;
   background-color: #FF5A5F;
   color: #FFFFFF;
@@ -19,7 +19,7 @@
   margin-right: 30px;
 }
 
-.filters button:hover {
+section.filters button:hover {
   opacity: 0.9;
 }
 
@@ -53,7 +53,7 @@
   z-index: 1;
 }
 
-.filter:hover .popover {
+section.filter:hover .popover {
   display: block;
 }
 
