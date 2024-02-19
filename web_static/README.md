@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 # **SAolutions to web_static**
-=======
 0x01. AirBnB clone - Web static
 HTML
 CSS
@@ -556,4 +554,3 @@ Repo:
 GitHub repository: AirBnB_clone
 Directory: web_static
 File: 103-index.html, styles/103-common.css, styles/103-header.css, styles/103-footer.css, styles/103-filters.cssirectory: we, styles/103-places.css, images/
->>>>>>> 6f78d09 (Write an HTML page that displays a header and a footer.)
